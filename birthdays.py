@@ -53,13 +53,44 @@ def get_menu_choice():
 
 
 def look_app(birthdays):
-    pass
+    # Получить имя:
+    name = input('Введите имя: ')
+    # Отыскать имя в словаре
+    print(birthdays.get(name, 'Имя не найдено.'))
+
 
 def add(birthdays):
-    pass
+    # Получит имя и день рождения
+    name = input('Введите имя: ')
+    bday = input('Введите день рождения: ')
+
+    if name not in birthdays:
+        birthdays[name] = bday
+        print('Запись добавлена')
+    else:
+        print('Эта запись уже существует')
+
 
 def change(birthdays):
-    pass
+    name = input('Введите имя: ')
+    if name in birthdays:
+        # Получит новый день рождения:
+        bday = input('Введите новый день рождения: ')
+        # Обновить запись
+        birthdays[name] = bday
+    else:
+        print('Это имя не найдено.')
+
 
 def delete(birthdays):
-    pass
+    name = input('Введите имя: ')
+
+    if name in birthdays:
+        del birthdays[name]
+    else:
+        print('Имя не найдено')
+
+
+if __name__ == '__main__':
+    main()
+
